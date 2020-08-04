@@ -232,6 +232,47 @@ class MyHomePage extends StatelessWidget {
 }
 ```
 
+### here we added some video from assets and some from network
+
+```
+VideosList(
+                videoPlayerController: VideoPlayerController.asset(
+                  'videos/Ansible.MP4',
+                ),
+                looping: true,
+              ),
+              VideosList(
+                videoPlayerController: VideoPlayerController.asset(
+                  'videos/Specialist_In_Python.MP4',
+                ),
+                looping: true,
+              ),
+              VideosList(
+                videoPlayerController: VideoPlayerController.asset(
+                  'videos/AnsiblePro.MP4',
+                ),
+                looping: true,
+              ),
+              VideosList(
+                videoPlayerController: VideoPlayerController.network(
+                  'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+                ),
+                looping: true,
+              ),
+              VideosList(
+                videoPlayerController: VideoPlayerController.asset(
+                  'videos/OpenShift.MP4',
+                ),
+                looping: true,
+              ),
+              VideosList(
+                videoPlayerController: VideoPlayerController.asset(
+                  'videos/Flutter.MP4',
+                ),
+                looping: true,
+              ),
+```
+
 ### for playing Audio
 
 we use [audioplayers](https://pub.dev/packages/audioplayers) plugin.
