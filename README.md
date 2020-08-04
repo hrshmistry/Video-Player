@@ -232,7 +232,7 @@ class MyHomePage extends StatelessWidget {
 }
 ```
 
-### here we added some video from assets and some from network
+### Here we added some video from assets and some from network
 
 ```
               VideosList(
@@ -273,11 +273,12 @@ class MyHomePage extends StatelessWidget {
               ),
 ```
 
-### for playing Audio
+### For playing Audio
+you have two options
 
 we use [audioplayers](https://pub.dev/packages/audioplayers) plugin.
 
-it is easy to implement, but here in this project we used defferent approch to audioplayer. as i wanted to make this app a singal page app, i did not use intent foe switching between two activities, foe playing and stoping audio i used singal floating button with that level of capability, here is the code snippet for that,
+##### 1) it is easy to implement, but here in this project we used defferent approch to audioplayer. as i wanted to make this app a singal page app, i did not use intent foe switching between two activities, foe playing and stoping audio i used singal floating button with that level of capability, here is the code snippet for that,
 
 ```
 floatingActionButton: FloatingActionButton(
@@ -297,20 +298,162 @@ floatingActionButton: FloatingActionButton(
           },
         )
 ```
+##### 2) here i implemented dedicated UI for Audio and it's functionalities like play, pause and stop buttons with duration with it,
+
+### For implementing audio functionalities and UI refere audio.dart,
+
+```
+import 'package:audioplayers/audioplayers.dart';
+import 'package:file_picker/file_picker.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+
+myApp() {
+  return MaterialApp(
+    home: HomePage(),
+    debugShowCheckedModeBanner: false,
+  );
+}
+
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  AudioPlayer player = AudioPlayer();
+  bool isPlaying = false;
+  String currentTime = "0:00:00";
+  String completeTime = "0:00:00";
+
+  @override
+  void initState() {
+    super.initState();
+
+    player.onAudioPositionChanged.listen((Duration duration) {
+      setState(() {
+        currentTime = duration.toString().split(".")[0];
+      });
+    });
+
+    player.onDurationChanged.listen((Duration duration) {
+      setState(() {
+        completeTime = duration.toString().split(".")[0];
+      });
+    });
+  }
+
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        color: Colors.blueGrey[200],
+        child: Column(
+          children: <Widget>[
+            Card(
+              shadowColor: Colors.deepPurple[900],
+              elevation: 20,
+              margin: EdgeInsets.only(top: 40, left: 30, right: 30),
+              child: Image.asset("images/wallhaven.jpg"),
+            ),
+            Container(
+                margin: EdgeInsets.only(top: 50),
+                width: 240,
+                height: 50,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(80),
+                ),
+                child: Row(
+                  // mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  // mainAxisSize: MainAxisSize.max,
+                  // mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    IconButton(
+                        icon: Icon(
+                          isPlaying
+                              ? Icons.pause_circle_filled
+                              : Icons.play_circle_filled,
+                          color: Colors.black,
+                          size: 30,
+                        ),
+                        onPressed: () {
+                          if (isPlaying) {
+                            player.pause();
+
+                            setState(() {
+                              isPlaying = false;
+                            });
+                          } else {
+                            player.resume();
+                            setState(() {
+                              isPlaying = true;
+                            });
+                          }
+                        }),
+                    IconButton(
+                      icon: Icon(
+                        Icons.stop,
+                        color: Colors.black,
+                        size: 25,
+                      ),
+                      onPressed: () {
+                        player.stop();
+
+                        setState(() {
+                          isPlaying = false;
+                        });
+                      },
+                    ),
+                    Text(
+                      "   " + currentTime,
+                      style: TextStyle(fontWeight: FontWeight.w700),
+                    ),
+                    Text(" | "),
+                    Text(
+                      completeTime,
+                      style: TextStyle(fontWeight: FontWeight.w300),
+                    ),
+                  ],
+                )),
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.audiotrack),
+        elevation: 10,
+        backgroundColor: Colors.deepPurple,
+        onPressed: () async {
+          String filePath = await FilePicker.getFilePath();
+
+          int status = await player.play(filePath, isLocal: true);
+
+          if (status == 1) {
+            setState(() {
+              isPlaying = true;
+            });
+          }
+        },
+      ),
+    );
+  }
+}
+```
+### Our audio UI will look like this,
+
+<p float = "center"> 
+  <img src="/ss/NewAudio.png" height="600" width="300" />
+</p>
 
 > Chewie is a Flutter package aimed at simplifying the process of playing videos. Instead of you having to deal with start, stop, and pause buttons, doing the overlay to display the progress of the video, Chewie does these things for you.
 
-### here is the final output of our project
+### Here is the final output of our project
 
 <p float = "center"> 
-  <img src="/ss/LiveMock.gif" height="600" width="330"  />
+  <img src="/ss/finalMock.gif" height="600" width="330"  />
 </p>
 
-- For the audio part we can also add more features like linear progress bar, stop and showing duration and all. below is a sneak pic of one of my projects,
-[Audio-Player](https://github.com/hrshmistry/Audio-Player)
-<p float = "center"> 
-  <img src="https://github.com/hrshmistry/Audio-Player/blob/Audio-Player/ss/iPhone%207%20Plus.png" height="600" width="300" />
-</p>
 
 #### we can also add this capabilities to our this project, but that is for next update!
 ## future features to added
