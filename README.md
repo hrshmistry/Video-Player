@@ -307,6 +307,7 @@ floatingActionButton: FloatingActionButton(
 </p>
 
 - For the audio part we can also add more features like linear progress bar, stop and showing duration and all. below is a sneak pic of one of my projects,
+[Audio-Player](https://github.com/hrshmistry/Audio-Player)
 <p float = "center"> 
   <img src="https://github.com/hrshmistry/Audio-Player/blob/Audio-Player/ss/iPhone%207%20Plus.png" height="600" width="300" />
 </p>
