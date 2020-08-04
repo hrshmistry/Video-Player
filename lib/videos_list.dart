@@ -28,10 +28,6 @@ class _VideosListState extends State<VideosList> {
       looping: widget.looping,
       errorBuilder: (context, errorMessage) {
         return Center(child: progressBar()
-            // Text(
-            //   errorMessage,
-            //   style: TextStyle(color: Colors.white),
-            // ),
             );
       },
     );

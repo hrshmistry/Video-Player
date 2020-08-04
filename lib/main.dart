@@ -33,6 +33,7 @@ class MyHomePage extends StatelessWidget {
           backgroundColor: Colors.deepPurple,
           title: Text("Music Player"),
           actions: <Widget>[
+            IconButton(icon: Icon(Icons.next_week), onPressed: () {}),
             IconButton(
                 icon: Icon(Icons.new_releases),
                 onPressed: () {
@@ -44,7 +45,7 @@ class MyHomePage extends StatelessWidget {
                       backgroundColor: Colors.deepPurple,
                       textColor: Colors.white,
                       fontSize: 16.0);
-                })
+                }),
           ],
         ),
         body: Stack(children: <Widget>[
