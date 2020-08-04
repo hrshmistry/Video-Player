@@ -455,7 +455,6 @@ class _HomePageState extends State<HomePage> {
 </p>
 
 
-#### we can also add this capabilities to our this project, but that is for next update!
 ## future features to added
 - can add audio/video from network url(user input).
 - add the play/pause and duration in minutes to audio part.
