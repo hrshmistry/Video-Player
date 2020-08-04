@@ -1,7 +1,7 @@
 # Music(Video/Audio) Player
 
 <p float = "center"> 
-  <img src="/ss/player.gif" height="600" width="330"  />
+  <img src="/ss/LiveMock.gif" height="600" width="330"  />
   <img src="/ss/mp1-Apple iPhone 7 Plus Gold [shadow].png" height="600" width="300" />
 </p>
 
