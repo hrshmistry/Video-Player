@@ -22,7 +22,7 @@ Chewie (and video_player for that matter) can play videos from 3 sources - asset
 Assets are simply files which are readily available for your app to use. They come bundled together with your app file after you build it for release, To set up assets, simply create a folder in the root of your project and call it, for example, videos. Then drag your desired video file in there.
 
 <p float = "center"> 
-  <img src="/ss/vss.gif" height="600" width="330"  />
+  <img src="/ss/vss.png" height="300" width="200"  />
 </p?
 
 A few resources to get you started:
