@@ -2,7 +2,7 @@
 
 <p float = "center"> 
   <img src="/ss/player.gif" height="600" width="300"  />
-  <img src="/ss/mp1-Apple iPhone 7 Plus Gold [shadow].png" height="600" width="300" />
+  <img src="/ss/mp1-Apple iPhone 7 Plus Gold [shadow].png" height="600" width="400" />
 </p>
 
 A few resources to get you started:
