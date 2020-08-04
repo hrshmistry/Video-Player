@@ -23,8 +23,25 @@ Assets are simply files which are readily available for your app to use. They co
 
 <p float = "center"> 
   <img src="/ss/vss.png" height="300" width="200"  />
-</p?
+</p>
 
+
+To let Flutter know about all the available assets, you have to specify them in the pubspec file. here i added all the dependencies needed in the project.
+
+```
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^0.1.3
+  chewie: ^0.9.10
+  file_picker: ^1.13.0+1
+  audioplayers: ^0.15.1
+  fluttertoast: ^7.0.2
+```
 A few resources to get you started:
 
 - [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
