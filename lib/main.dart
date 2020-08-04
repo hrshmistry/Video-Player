@@ -1,6 +1,6 @@
 import 'package:audioplayers/audioplayers.dart';
-import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:video_app/audio.dart';
 import 'package:video_app/videos_list.dart';
 import 'package:video_player/video_player.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -31,11 +31,22 @@ class MyHomePage extends StatelessWidget {
             size: 45,
           ),
           backgroundColor: Colors.deepPurple,
-          title: Text("Music Player"),
+          title: Text(
+            "Music Player",
+            style: TextStyle(fontSize: 18),
+          ),
           actions: <Widget>[
-            IconButton(icon: Icon(Icons.next_week), onPressed: () {}),
             IconButton(
-                icon: Icon(Icons.new_releases),
+                icon: Icon(
+                  Icons.next_week,
+                  size: 20,
+                ),
+                onPressed: () {}),
+            IconButton(
+                icon: Icon(
+                  Icons.new_releases,
+                  size: 20,
+                ),
                 onPressed: () {
                   Fluttertoast.showToast(
                       msg: "New features coming soon!",
@@ -91,20 +102,25 @@ class MyHomePage extends StatelessWidget {
           ),
         ]),
         floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.audiotrack),
-          elevation: 15,
-          backgroundColor: Colors.deepPurple,
-          onPressed: () async {
-            if (status == 1) {
-              status = await player.stop();
-              status = 0;
-            } else {
-              String filePath = await FilePicker.getFilePath();
-              status = await player.play(filePath, isLocal: true);
-              //also can be played from the assets...
-              //but users must have choices so local file is used!!
+            child: Icon(Icons.audiotrack),
+            elevation: 15,
+            backgroundColor: Colors.deepPurple,
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return myApp();
+              }));
             }
-          },
-        ));
+            // () async {
+            //   if (status == 1) {
+            //     status = await player.stop();
+            //     status = 0;
+            //   } else {
+            //     String filePath = await FilePicker.getFilePath();
+            //     status = await player.play(filePath, isLocal: true);
+            //     //also can be played from the assets...
+            //     //but users must have choices so local file is used!!
+            //   }
+            // },
+            ));
   }
 }
