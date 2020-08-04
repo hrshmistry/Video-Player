@@ -450,6 +450,20 @@ class _HomePageState extends State<HomePage> {
   }
 }
 ```
+We are using audioCache streams for duration and position for that have to subscribe to the streams,
+```
+ player.onAudioPositionChanged.listen((Duration duration) {
+      setState(() {
+        currentTime = duration.toString().split(".")[0];
+      });
+    });
+
+    player.onDurationChanged.listen((Duration duration) {
+      setState(() {
+        completeTime = duration.toString().split(".")[0];
+      });
+    });
+```
 ### Our audio UI will look like this,
 
 <p float = "center"> 
