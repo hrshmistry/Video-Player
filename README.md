@@ -235,7 +235,7 @@ class MyHomePage extends StatelessWidget {
 ### here we added some video from assets and some from network
 
 ```
-VideosList(
+              VideosList(
                 videoPlayerController: VideoPlayerController.asset(
                   'videos/Ansible.MP4',
                 ),
