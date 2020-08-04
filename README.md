@@ -300,6 +300,16 @@ floatingActionButton: FloatingActionButton(
 ```
 ##### 2) here i implemented dedicated UI for Audio and it's functionalities like play, pause and stop buttons with duration with it,
 
+for audio poster for now we are using static images, add your images in images root nfolder like this,
+<p float = "center"> 
+  <img src="/ss/images.png" height="300" width="200"  />
+</p>
+
+and also add assets path to your pubspec.yml file,
+<p float = "center"> 
+  <img src="/ss/assets.png" height="300" width="600"  />
+</p>
+
 ### For implementing audio functionalities and UI refere audio.dart,
 
 ```
@@ -454,6 +464,7 @@ class _HomePageState extends State<HomePage> {
   <img src="/ss/finalMock.gif" height="600" width="330"  />
 </p>
 
+Click [here](https://github.com/hrshmistry/Video-Player/blob/Video-Player/ss/finalMock.mp4) for sounded output.
 
 ## future features to added
 - can add audio/video from network url(user input).
