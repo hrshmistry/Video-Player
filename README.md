@@ -1,6 +1,6 @@
 # Music(Video/Audio) Player
 
-### How can play videos in Flutter? 
+### How can we play videos in Flutter? 
 
 There is a library directly from the Flutter team simply called [video_player](https://pub.dev/packages/video_player). This library, however, is completely bare-bones. While it can play videos, it's up to you to add video playback controls and to style it. There is a better option which comes bundled with the UI as you'd expect both on Android and iOS - [Chewie.](https://pub.dev/packages/chewie) - Chewie uses the first-party video_player package behind the scenes. It only simplifies the process of video playback.
 
