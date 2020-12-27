@@ -1,4 +1,4 @@
-# Music(Video/Audio) Player
+# Video/Audio Player in Flutter with Powerful controls
 
 ### How can we play videos in Flutter? 
 
